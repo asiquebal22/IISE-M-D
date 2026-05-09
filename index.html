@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manufacturing & Design 3-Minute Research Video Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --border: #1e1e2a;
+    --text: #e8e8ed;
+    --text-dim: #6b6b7b;
+    --accent: #4f8cff;
+    --accent-glow: rgba(79, 140, 255, 0.15);
+    --active-bg: rgba(79, 140, 255, 0.1);
+    --red: #ff6b4f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .container { width: 100%; max-width: 1100px; }
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 0 0.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .header h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+  }
+
+  .header .now-playing {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(79, 140, 255, 0.06);
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 3px;
+    background: var(--border);
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s linear;
+  }
+
+  .playlist {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .playlist-item {
+    flex: 1;
+    min-width: 130px;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .playlist-item:hover {
+    border-color: var(--accent);
+    background: var(--active-bg);
+  }
+
+  .playlist-item.active {
+    border-color: var(--accent);
+    background: var(--active-bg);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  .playlist-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .playlist-item .number {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-bottom: 0.25rem;
+  }
+
+  .playlist-item.active .number { color: var(--accent); }
+
+  .playlist-item .name {
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .controls button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .controls button:hover {
+    border-color: var(--accent);
+    background: var(--active-bg);
+  }
+
+  .controls .timer {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .controls .pause-btn.paused {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    line-height: 1.8;
+  }
+
+  /* Start screen */
+  .start-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 100;
+    cursor: pointer;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .start-screen.hidden { display: none; }
+
+  .start-screen h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    max-width: 500px;
+    line-height: 1.8;
+  }
+
+  .start-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 60px var(--accent-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .start-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 80px rgba(79, 140, 255, 0.3);
+  }
+
+  .start-btn svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+    margin-left: 6px;
+  }
+
+  .start-hint {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  /* Loading indicator */
+  .loading {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .loading.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="start-screen" id="startScreen" onclick="startShowcase()">
+  <h2>Manufacturing &amp; Design<br>3-Minute Research Video Showcase</h2>
+  <button class="start-btn">
+    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+  </button>
+  <div class="start-hint">Click anywhere to start</div>
+</div>
+
+<div class="container">
+  <div class="header">
+    <h1>Manufacturing &amp; Design &mdash; 3-Minute Research Video Showcase</h1>
+    <div class="now-playing" id="nowPlaying"></div>
+  </div>
+
+  <div class="video-wrapper">
+    <div class="loading" id="loading">Loading video...</div>
+    <video id="videoPlayer" autoplay playsinline preload="auto"></video>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <div class="playlist" id="playlist"></div>
+
+  <div class="controls">
+    <button onclick="prevVideo()">&#9664; Prev</button>
+    <button class="pause-btn" id="pauseBtn" onclick="togglePause()">Pause</button>
+    <span class="timer" id="timer">0:00</span>
+    <button onclick="nextVideo()">Next &#9654;</button>
+  </div>
+
+  <div class="footer">
+    Auto-plays &middot; Auto-advances &middot; Loops continuously
+  </div>
+</div>
+
+<script>
+// Alphabetical by last name: Heck, Huang, Ko, Kuo, Nyanney, Rahman
+const VIDEOS = [
+  { name: "Logan Heck",         file: "videos/heck.mp4" },
+  { name: "Ian (Yihan) Huang",  file: "videos/huang.mp4" },
+  { name: "Donghyun Ko",        file: "videos/ko.mp4" },
+  { name: "Timothy Kuo",        file: "videos/kuo.mp4" },
+  { name: "Evans Nyanney",      file: "videos/nyanney.mp4" },
+  { name: "Mahjabin Rahman",    file: "videos/rahman.mp4" }
+];
+
+let currentIndex = 0;
+
+const player = document.getElementById('videoPlayer');
+const nowPlaying = document.getElementById('nowPlaying');
+const progressFill = document.getElementById('progressFill');
+const timerEl = document.getElementById('timer');
+const pauseBtn = document.getElementById('pauseBtn');
+const playlistEl = document.getElementById('playlist');
+const loading = document.getElementById('loading');
+
+// Build playlist UI
+VIDEOS.forEach((v, i) => {
+  const div = document.createElement('div');
+  div.className = 'playlist-item';
+  div.innerHTML = `
+    <div class="number">${String(i + 1).padStart(2, '0')}</div>
+    <div class="name">${v.name}</div>
+  `;
+  div.onclick = () => playVideo(i);
+  playlistEl.appendChild(div);
+});
+
+// Auto-advance when video ends
+player.addEventListener('ended', () => {
+  nextVideo();
+});
+
+// Update progress bar and timer from actual video time
+player.addEventListener('timeupdate', () => {
+  if (player.duration && isFinite(player.duration)) {
+    const pct = (player.currentTime / player.duration) * 100;
+    progressFill.style.width = pct + '%';
+
+    const remaining = Math.max(0, Math.ceil(player.duration - player.currentTime));
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    timerEl.textContent = `${m}:${String(s).padStart(2, '0')}`;
+  }
+});
+
+// Hide loading when video can play
+player.addEventListener('canplay', () => {
+  loading.classList.add('hidden');
+});
+
+function playVideo(index) {
+  currentIndex = index;
+  const video = VIDEOS[currentIndex];
+  nowPlaying.textContent = `Playing: ${video.name}`;
+  progressFill.style.width = '0%';
+  loading.classList.remove('hidden');
+
+  player.src = video.file;
+  player.load();
+  player.play().catch(err => {
+    console.log('Playback error:', err);
+  });
+
+  // Update playlist highlight
+  document.querySelectorAll('.playlist-item').forEach((el, i) => {
+    el.classList.toggle('active', i === currentIndex);
+  });
+
+  pauseBtn.textContent = 'Pause';
+  pauseBtn.classList.remove('paused');
+}
+
+function nextVideo() {
+  playVideo((currentIndex + 1) % VIDEOS.length);
+}
+
+function prevVideo() {
+  playVideo((currentIndex - 1 + VIDEOS.length) % VIDEOS.length);
+}
+
+function togglePause() {
+  if (player.paused) {
+    player.play();
+    pauseBtn.textContent = 'Pause';
+    pauseBtn.classList.remove('paused');
+  } else {
+    player.pause();
+    pauseBtn.textContent = 'Resume';
+    pauseBtn.classList.add('paused');
+  }
+}
+
+function startShowcase() {
+  document.getElementById('startScreen').classList.add('hidden');
+  playVideo(0);
+}
+</script>
+</body>
+</html>
