@@ -46,7 +46,7 @@
 
   .header h1 {
     font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -54,7 +54,7 @@
   }
 
   .header .now-playing {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: var(--accent);
     font-weight: 500;
   }
@@ -133,7 +133,7 @@
 
   .playlist-item .number {
     font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text-dim);
     margin-bottom: 0.25rem;
   }
@@ -141,8 +141,17 @@
   .playlist-item.active .number { color: var(--accent); }
 
   .playlist-item .name {
-    font-size: 0.78rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .playlist-item .school {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 0.2rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -160,10 +169,10 @@
     background: var(--surface);
     border: 1px solid var(--border);
     color: var(--text);
-    padding: 0.6rem 1.4rem;
+    padding: 0.7rem 1.6rem;
     border-radius: 6px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -176,9 +185,9 @@
 
   .controls .timer {
     font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     color: var(--text-dim);
-    min-width: 70px;
+    min-width: 80px;
     text-align: center;
   }
 
@@ -190,7 +199,7 @@
   .footer {
     text-align: center;
     margin-top: 2rem;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     color: var(--text-dim);
     font-family: 'Space Mono', monospace;
     line-height: 1.8;
@@ -216,7 +225,7 @@
 
   .start-screen h2 {
     font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -252,7 +261,7 @@
   }
 
   .start-hint {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     color: var(--text-dim);
   }
 
@@ -263,7 +272,7 @@
     transform: translate(-50%, -50%);
     color: var(--text-dim);
     font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 1rem;
     z-index: 1;
     pointer-events: none;
   }
@@ -302,6 +311,7 @@
     <button class="pause-btn" id="pauseBtn" onclick="togglePause()">Pause</button>
     <span class="timer" id="timer">0:00</span>
     <button onclick="nextVideo()">Next &#9654;</button>
+    <button onclick="goFullscreen()" id="fsBtn" title="Fullscreen">&#x26F6; Fullscreen</button>
   </div>
 
   <div class="footer">
@@ -312,12 +322,12 @@
 <script>
 // Alphabetical by last name: Heck, Huang, Ko, Kuo, Nyanney, Rahman
 const VIDEOS = [
-  { name: "Logan Heck",         file: "videos/heck.mp4" },
-  { name: "Ian (Yihan) Huang",  file: "videos/huang.mp4" },
-  { name: "Donghyun Ko",        file: "videos/ko.mp4" },
-  { name: "Timothy Kuo",        file: "videos/kuo.mp4" },
-  { name: "Evans Nyanney",      file: "videos/nyanney.mp4" },
-  { name: "Mahjabin Rahman",    file: "videos/rahman.mp4" }
+  { name: "Logan Heck",         school: "The University of Texas at San Antonio", file: "videos/heck.mp4" },
+  { name: "Ian (Yihan) Huang",  school: "North Carolina State University",        file: "videos/huang.mp4" },
+  { name: "Donghyun Ko",        school: "North Carolina State University",        file: "videos/ko.mp4" },
+  { name: "Timothy Kuo",        school: "Penn State University",                  file: "videos/kuo.mp4" },
+  { name: "Evans Nyanney",      school: "Ohio University",                        file: "videos/nyanney.mp4" },
+  { name: "Mahjabin Rahman",    school: "University of Pittsburgh",               file: "videos/rahman.mp4" }
 ];
 
 let currentIndex = 0;
@@ -337,6 +347,7 @@ VIDEOS.forEach((v, i) => {
   div.innerHTML = `
     <div class="number">${String(i + 1).padStart(2, '0')}</div>
     <div class="name">${v.name}</div>
+    <div class="school">${v.school}</div>
   `;
   div.onclick = () => playVideo(i);
   playlistEl.appendChild(div);
@@ -368,7 +379,7 @@ player.addEventListener('canplay', () => {
 function playVideo(index) {
   currentIndex = index;
   const video = VIDEOS[currentIndex];
-  nowPlaying.textContent = `Playing: ${video.name}`;
+  nowPlaying.textContent = `Playing: ${video.name} — ${video.school}`;
   progressFill.style.width = '0%';
   loading.classList.remove('hidden');
 
@@ -411,6 +422,23 @@ function startShowcase() {
   document.getElementById('startScreen').classList.add('hidden');
   playVideo(0);
 }
+
+function goFullscreen() {
+  const wrapper = document.querySelector('.video-wrapper');
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else if (wrapper.requestFullscreen) {
+    wrapper.requestFullscreen();
+  } else if (wrapper.webkitRequestFullscreen) {
+    wrapper.webkitRequestFullscreen();
+  }
+}
+
+// Update fullscreen button text on change
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('fsBtn');
+  btn.textContent = document.fullscreenElement ? '✕ Exit' : '⛶ Fullscreen';
+});
 </script>
 </body>
 </html>
