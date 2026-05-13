@@ -278,6 +278,25 @@
   }
 
   .loading.hidden { display: none; }
+
+  /* Fullscreen container styling */
+  .container:fullscreen {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .container:-webkit-full-screen {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 100%;
+  }
 </style>
 </head>
 <body>
@@ -451,13 +470,13 @@ function startShowcase() {
 }
 
 function goFullscreen() {
-  const wrapper = document.querySelector('.video-wrapper');
+  const container = document.querySelector('.container');
   if (document.fullscreenElement) {
     document.exitFullscreen();
-  } else if (wrapper.requestFullscreen) {
-    wrapper.requestFullscreen();
-  } else if (wrapper.webkitRequestFullscreen) {
-    wrapper.webkitRequestFullscreen();
+  } else if (container.requestFullscreen) {
+    container.requestFullscreen();
+  } else if (container.webkitRequestFullscreen) {
+    container.webkitRequestFullscreen();
   }
 }
 
