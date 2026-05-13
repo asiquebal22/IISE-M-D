@@ -384,20 +384,23 @@ function playVideo(index) {
   progressFill.style.width = '0%';
   loading.classList.remove('hidden');
 
+  // Stop current playback and clear source
+  player.pause();
+  player.removeAttribute('src');
+
+  // Remove all existing tracks
+  const existingTracks = player.querySelectorAll('track');
+  existingTracks.forEach(t => t.remove());
+
+  // Set new source
   player.src = video.file;
 
-  // Remove existing tracks
-  while (player.querySelector('track')) {
-    player.querySelector('track').remove();
-  }
-
-  // Add subtitle track
+  // Add new subtitle track
   const track = document.createElement('track');
   track.kind = 'captions';
   track.label = 'English';
   track.srclang = 'en';
   track.src = video.subs;
-  track.default = true;
   player.appendChild(track);
 
   player.load();
@@ -405,12 +408,13 @@ function playVideo(index) {
     console.log('Playback error:', err);
   });
 
-  // Enable captions by default
-  setTimeout(() => {
+  // Enable captions after load
+  player.addEventListener('loadedmetadata', function onMeta() {
     if (player.textTracks.length > 0) {
-      player.textTracks[0].mode = 'showing';
+      player.textTracks[0].mode = captionsOn ? 'showing' : 'hidden';
     }
-  }, 100);
+    player.removeEventListener('loadedmetadata', onMeta);
+  });
 
   // Update playlist highlight
   document.querySelectorAll('.playlist-item').forEach((el, i) => {
