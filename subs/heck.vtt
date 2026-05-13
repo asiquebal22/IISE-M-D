@@ -1,0 +1,189 @@
+WEBVTT - Subtitles by: DownloadYoutubeSubtitles.com
+
+00:00:01.600 --> 00:00:05.920
+What if a 3D printed part looks
+
+00:00:03.840 --> 00:00:08.240
+completely normal, but is actually
+
+00:00:05.920 --> 00:00:10.320
+dangerously weak?
+
+00:00:08.240 --> 00:00:12.320
+In modern manufacturing, that's not
+
+00:00:10.320 --> 00:00:15.280
+science fiction. It's a real cyber
+
+00:00:12.320 --> 00:00:18.160
+security risk. Today's industrial 3D
+
+00:00:15.280 --> 00:00:20.320
+printers are connected systems. They can
+
+00:00:18.160 --> 00:00:23.600
+be monitored remotely, controlled
+
+00:00:20.320 --> 00:00:26.080
+remotely, and unfortunately attacked
+
+00:00:23.600 --> 00:00:28.240
+remotely, and an attacker doesn't need
+
+00:00:26.080 --> 00:00:30.400
+to break the machine. An attacker can
+
+00:00:28.240 --> 00:00:33.600
+simply tweak process parameters like
+
+00:00:30.400 --> 00:00:36.559
+temperature or speed to quietly weaken a
+
+00:00:33.600 --> 00:00:38.640
+part from the inside. The problem is
+
+00:00:36.559 --> 00:00:41.680
+traditional inspection methods won't
+
+00:00:38.640 --> 00:00:44.640
+always catch this. A part may look fine,
+
+00:00:41.680 --> 00:00:47.520
+but structurally it could fail. In this
+
+00:00:44.640 --> 00:00:49.440
+work, we ask a simple question. Can we
+
+00:00:47.520 --> 00:00:51.440
+detect these attacks while a part is
+
+00:00:49.440 --> 00:00:53.600
+being printed? To do this, we used
+
+00:00:51.440 --> 00:00:55.680
+external sensors measuring temperature,
+
+00:00:53.600 --> 00:00:57.840
+vibration, and air quality to monitor
+
+00:00:55.680 --> 00:00:59.840
+the printer in real time. Then, we
+
+00:00:57.840 --> 00:01:02.239
+trained a machine learning model called
+
+00:00:59.840 --> 00:01:04.640
+an autoenccoder to learn what normal
+
+00:01:02.239 --> 00:01:07.119
+printing behavior looks like. When
+
+00:01:04.640 --> 00:01:10.080
+something unusual happens, the model
+
+00:01:07.119 --> 00:01:12.240
+flags it as an anomaly. We tested this
+
+00:01:10.080 --> 00:01:14.799
+by intentionally modifying the printing
+
+00:01:12.240 --> 00:01:17.040
+parameters of a laserbased 3D printer
+
+00:01:14.799 --> 00:01:19.680
+and producing tensile test specimens
+
+00:01:17.040 --> 00:01:21.759
+along with an artifact measurement part.
+
+00:01:19.680 --> 00:01:24.080
+The tensile specimens were evaluated
+
+00:01:21.759 --> 00:01:26.159
+using a tensile testing machine, while
+
+00:01:24.080 --> 00:01:28.640
+the artifact parts were scanned with a
+
+00:01:26.159 --> 00:01:31.759
+highresolution 3D scanner to detect
+
+00:01:28.640 --> 00:01:35.360
+dimensional deviations. The results were
+
+00:01:31.759 --> 00:01:37.360
+striking. Some parts lost over 50% of
+
+00:01:35.360 --> 00:01:39.759
+their strength, yet still appeared
+
+00:01:37.360 --> 00:01:42.000
+nearly identical under high resolution
+
+00:01:39.759 --> 00:01:44.799
+scanning. Visually, they passed
+
+00:01:42.000 --> 00:01:46.960
+inspection. However, the sensor data
+
+00:01:44.799 --> 00:01:48.880
+told a different story. Our model
+
+00:01:46.960 --> 00:01:51.360
+successfully detected many of these
+
+00:01:48.880 --> 00:01:53.600
+hidden deviations, identifying when
+
+00:01:51.360 --> 00:01:56.240
+process behavior no longer aligned with
+
+00:01:53.600 --> 00:01:58.240
+normal operating conditions. This
+
+00:01:56.240 --> 00:02:00.320
+demonstrates that cyber security in
+
+00:01:58.240 --> 00:02:02.640
+manufacturing is not only about
+
+00:02:00.320 --> 00:02:04.719
+protecting data. It is about protecting
+
+00:02:02.640 --> 00:02:07.360
+the physical integrity of what we
+
+00:02:04.719 --> 00:02:09.520
+produce. By combining sensor data with
+
+00:02:07.360 --> 00:02:11.920
+machine learning, we can move towards
+
+00:02:09.520 --> 00:02:14.800
+smarter systems that monitor themselves
+
+00:02:11.920 --> 00:02:16.959
+in real time and detect issues before
+
+00:02:14.800 --> 00:02:19.680
+failures propagate across entire
+
+00:02:16.959 --> 00:02:22.080
+production batches. As manufacturing
+
+00:02:19.680 --> 00:02:24.959
+becomes more connected, solutions like
+
+00:02:22.080 --> 00:02:27.360
+this can play a key role in ensuring not
+
+00:02:24.959 --> 00:02:29.520
+just surface level accuracy, but
+
+00:02:27.360 --> 00:02:32.920
+consistent internal quality throughout
+
+00:02:29.520 --> 00:02:32.920
+what we print.
+
+
