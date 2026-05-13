@@ -1,225 +1,150 @@
-WEBVTT - Subtitles by: DownloadYoutubeSubtitles.com
+WEBVTT
 
+1
 00:00:01.360 --> 00:00:06.160
-What if a factory could adapt the moment
+What if a factory could adapt the moment conditions change?
 
-00:00:03.439 --> 00:00:08.559
-conditions change?
-
+2
 00:00:06.160 --> 00:00:11.360
-Manufacturing systems consist of
+Manufacturing systems consist of interconnected machines, resources, and
 
-00:00:08.559 --> 00:00:13.840
-interconnected machines, resources, and
-
+3
 00:00:11.360 --> 00:00:16.480
-processes that harmonically transform
+processes that harmonically transform raw materials into finished products.
 
-00:00:13.840 --> 00:00:18.400
-raw materials into finished products.
-
+4
 00:00:16.480 --> 00:00:20.640
-The performances of a manufacturing
+The performances of a manufacturing system are often pertinent to the rate
 
-00:00:18.400 --> 00:00:23.119
-system are often pertinent to the rate
-
+5
 00:00:20.640 --> 00:00:25.199
-of throughputs, the cost of production,
+of throughputs, the cost of production, the quality of finished products, the
 
-00:00:23.119 --> 00:00:27.439
-the quality of finished products, the
-
+6
 00:00:25.199 --> 00:00:29.359
-resilience to disruptions, or the life
+resilience to disruptions, or the life cycle sustainability.
 
-00:00:27.439 --> 00:00:31.119
-cycle sustainability.
-
+7
 00:00:29.359 --> 00:00:33.520
-But real factories still face
+But real factories still face disruptions such as machine failures,
 
-00:00:31.119 --> 00:00:36.000
-disruptions such as machine failures,
-
+8
 00:00:33.520 --> 00:00:38.719
-material shortages, labor challenges,
+material shortages, labor challenges, demand variation, and tooling problems.
 
-00:00:36.000 --> 00:00:40.960
-demand variation, and tooling problems.
-
+9
 00:00:38.719 --> 00:00:43.040
-When a disruption occurs, production
+When a disruption occurs, production performance can degrade, and the system
 
-00:00:40.960 --> 00:00:45.680
-performance can degrade, and the system
-
+10
 00:00:43.040 --> 00:00:48.079
-may miss target KPI.
+may miss target KPI. New technologies like digital twin have
 
-00:00:45.680 --> 00:00:50.079
-New technologies like digital twin have
-
+11
 00:00:48.079 --> 00:00:52.559
-been increasingly deployed to address
+been increasingly deployed to address these challenges. A digital twin
 
-00:00:50.079 --> 00:00:54.800
-these challenges. A digital twin
-
+12
 00:00:52.559 --> 00:00:57.199
-provides a digital representation of the
+provides a digital representation of the manufacturing system for data streaming,
 
-00:00:54.800 --> 00:00:59.760
-manufacturing system for data streaming,
-
+13
 00:00:57.199 --> 00:01:02.719
-visualization, simulation, process
+visualization, simulation, process control, and optimization. Digital twin
 
-00:00:59.760 --> 00:01:04.559
-control, and optimization. Digital twin
-
+14
 00:01:02.719 --> 00:01:06.479
-is powerful, but there is still a
+is powerful, but there is still a challenge in complex manufacturing
 
-00:01:04.559 --> 00:01:08.240
-challenge in complex manufacturing
-
+15
 00:01:06.479 --> 00:01:10.560
-systems. The number of possible
+systems. The number of possible configurations and disruption scenarios
 
-00:01:08.240 --> 00:01:12.880
-configurations and disruption scenarios
-
+16
 00:01:10.560 --> 00:01:15.040
-can grow rapidly. Traditional redesign
+can grow rapidly. Traditional redesign and simulationbased search can become
 
-00:01:12.880 --> 00:01:17.280
-and simulationbased search can become
-
+17
 00:01:15.040 --> 00:01:20.159
-timeconuming and computationally
+timeconuming and computationally expensive. This research presents a new
 
-00:01:17.280 --> 00:01:22.799
-expensive. This research presents a new
-
+18
 00:01:20.159 --> 00:01:24.880
-generative AI framework for on-fly
+generative AI framework for on-fly manufacturing system design under
 
-00:01:22.799 --> 00:01:26.799
-manufacturing system design under
-
+19
 00:01:24.880 --> 00:01:28.960
-disruption. The goal is to generate
+disruption. The goal is to generate adaptive system designs that align
 
-00:01:26.799 --> 00:01:31.920
-adaptive system designs that align
-
+20
 00:01:28.960 --> 00:01:34.320
-production performance with target KPI.
+production performance with target KPI. The framework has three main components,
 
-00:01:31.920 --> 00:01:37.280
-The framework has three main components,
-
+21
 00:01:34.320 --> 00:01:39.360
-a predictor, a generator, and a critic.
+a predictor, a generator, and a critic. Together, they learn relationships among
 
-00:01:37.280 --> 00:01:41.759
-Together, they learn relationships among
-
+22
 00:01:39.360 --> 00:01:45.119
-machine availability, design decisions,
+machine availability, design decisions, and KPI outcomes. As the environment of
 
-00:01:41.759 --> 00:01:47.840
-and KPI outcomes. As the environment of
-
+23
 00:01:45.119 --> 00:01:50.159
-a manufacturing job shop is dynamically
+a manufacturing job shop is dynamically evolving, plant managers are provided
 
-00:01:47.840 --> 00:01:52.560
-evolving, plant managers are provided
-
+24
 00:01:50.159 --> 00:01:54.640
-with this generative AI tool that
+with this generative AI tool that generates candidate designs and
 
-00:01:52.560 --> 00:01:57.040
-generates candidate designs and
-
+25
 00:01:54.640 --> 00:02:00.000
-implementation costs by taking a
+implementation costs by taking a specific set of input variables. When
 
-00:01:57.040 --> 00:02:02.399
-specific set of input variables. When
-
+26
 00:02:00.000 --> 00:02:04.880
-disruptions occur to machines, material
+disruptions occur to machines, material handling systems, job orders, or raw
 
-00:02:02.399 --> 00:02:07.280
-handling systems, job orders, or raw
-
+27
 00:02:04.880 --> 00:02:09.360
-materials, plant managers can feed new
+materials, plant managers can feed new input variables to this tool and
 
-00:02:07.280 --> 00:02:11.520
-input variables to this tool and
-
+28
 00:02:09.360 --> 00:02:14.400
-generate reconfigurable designs for
+generate reconfigurable designs for evaluation and assessment. Similarly,
 
-00:02:11.520 --> 00:02:16.480
-evaluation and assessment. Similarly,
-
+29
 00:02:14.400 --> 00:02:18.879
-when there is no disruption or the
+when there is no disruption or the system is restored to conditions before
 
-00:02:16.480 --> 00:02:21.440
-system is restored to conditions before
-
+30
 00:02:18.879 --> 00:02:24.720
-disruptions, plant managers can also
+disruptions, plant managers can also input a different set of KPI targets or
 
-00:02:21.440 --> 00:02:26.879
-input a different set of KPI targets or
-
+31
 00:02:24.720 --> 00:02:28.800
-job order variations to generate
+job order variations to generate candidate designs for continuous
 
-00:02:26.879 --> 00:02:31.280
-candidate designs for continuous
-
+32
 00:02:28.800 --> 00:02:33.519
-improvements. In this vision, the
+improvements. In this vision, the physical factory, digital twin, and
 
-00:02:31.280 --> 00:02:36.400
-physical factory, digital twin, and
-
+33
 00:02:33.519 --> 00:02:38.080
-generative AI work together. The factory
+generative AI work together. The factory provides the real manufacturing
 
-00:02:36.400 --> 00:02:40.319
-provides the real manufacturing
-
+34
 00:02:38.080 --> 00:02:42.160
-environment. The digital twin provides
+environment. The digital twin provides simulation intelligence and the
 
-00:02:40.319 --> 00:02:44.319
-simulation intelligence and the
-
+35
 00:02:42.160 --> 00:02:47.040
-generative AI framework supports
+generative AI framework supports redesign decisions. This work shows how
 
-00:02:44.319 --> 00:02:49.280
-redesign decisions. This work shows how
-
+36
 00:02:47.040 --> 00:02:51.360
-generative AI can support resilient
+generative AI can support resilient manufacturing by helping factories
 
-00:02:49.280 --> 00:02:53.440
-manufacturing by helping factories
-
+37
 00:02:51.360 --> 00:02:57.400
-respond faster to disruptions and
-
-00:02:53.440 --> 00:02:57.400
-changing performance goals.
-
+respond faster to disruptions and changing performance goals.
 

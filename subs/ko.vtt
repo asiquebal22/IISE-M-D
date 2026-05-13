@@ -1,222 +1,150 @@
-WEBVTT - Subtitles by: DownloadYoutubeSubtitles.com
+WEBVTT
 
+1
 00:00:01.360 --> 00:00:06.640
-Hi, my name is Don Cole. I'm a PhD
+Hi, my name is Don Cole. I'm a PhD student in the ISC department NC State
 
-00:00:04.240 --> 00:00:09.440
-student in the ISC department NC State
-
+2
 00:00:06.640 --> 00:00:11.840
-University. My research focus on
+University. My research focus on building a realtime decision support
 
-00:00:09.440 --> 00:00:14.160
-building a realtime decision support
-
+3
 00:00:11.840 --> 00:00:16.080
-framework for additive manufacturing
+framework for additive manufacturing using a diffusion model which is one of
 
-00:00:14.160 --> 00:00:18.800
-using a diffusion model which is one of
-
+4
 00:00:16.080 --> 00:00:21.199
-the core algorithm of generative AI.
+the core algorithm of generative AI. Laser powder bed fusion is not only for
 
-00:00:18.800 --> 00:00:23.920
-Laser powder bed fusion is not only for
-
+5
 00:00:21.199 --> 00:00:25.680
-prototyping but also producing rear
+prototyping but also producing rear parts in many applications like
 
-00:00:23.920 --> 00:00:28.240
-parts in many applications like
-
+6
 00:00:25.680 --> 00:00:30.000
-aerospace and medical. But the process
+aerospace and medical. But the process is highly sensitive to parameter
 
-00:00:28.240 --> 00:00:32.480
-is highly sensitive to parameter
-
+7
 00:00:30.000 --> 00:00:34.559
-settings. So even small deviation from
+settings. So even small deviation from the optimal setting can cause serious
 
-00:00:32.480 --> 00:00:37.120
-the optimal setting can cause serious
-
+8
 00:00:34.559 --> 00:00:39.360
-quality problem and defects may still
+quality problem and defects may still occur even on the optimal setting as
 
-00:00:37.120 --> 00:00:42.559
-occur even on the optimal setting as
-
+9
 00:00:39.360 --> 00:00:44.320
-defect formation is some stochastic. My
+defect formation is some stochastic. My work goes one step further from the
 
-00:00:42.559 --> 00:00:46.239
-work goes one step further from the
-
+10
 00:00:44.320 --> 00:00:48.719
-previous studies not only to predict
+previous studies not only to predict what may happen next but also to support
 
-00:00:46.239 --> 00:00:50.879
-what may happen next but also to support
-
+11
 00:00:48.719 --> 00:00:52.879
-the real time decision on whether the
+the real time decision on whether the ongoing printing process should continue
 
-00:00:50.879 --> 00:00:55.840
-ongoing printing process should continue
-
+12
 00:00:52.879 --> 00:00:59.520
-or stop. For this I used the paragan
+or stop. For this I used the paragan data set released by okage in 2023 which
 
-00:00:55.840 --> 00:01:02.000
-data set released by okage in 2023 which
-
+13
 00:00:59.520 --> 00:01:04.879
-contains multimodel information aligned
+contains multimodel information aligned across space and time including postmelt
 
-00:01:02.000 --> 00:01:07.200
-across space and time including postmelt
-
+14
 00:01:04.879 --> 00:01:09.680
-post record images in sich environmental
+post record images in sich environmental signals and so on. What I need to
 
-00:01:07.200 --> 00:01:12.080
-signals and so on. What I need to
-
+15
 00:01:09.680 --> 00:01:13.760
-generate is a postmelt images and other
+generate is a postmelt images and other modalities are being used as a
 
-00:01:12.080 --> 00:01:16.640
-modalities are being used as a
-
+16
 00:01:13.760 --> 00:01:18.479
-conditioner information. I propose a
+conditioner information. I propose a framework consisting of three
 
-00:01:16.640 --> 00:01:20.320
-framework consisting of three
-
+17
 00:01:18.479 --> 00:01:23.600
-components. The first piece is
+components. The first piece is generator. It is a diffusion model that
 
-00:01:20.320 --> 00:01:26.080
-generator. It is a diffusion model that
-
+18
 00:01:23.600 --> 00:01:28.960
-forecast the next layer postmelt images
+forecast the next layer postmelt images based on previous object layer. The
 
-00:01:26.080 --> 00:01:31.920
-based on previous object layer. The
-
+19
 00:01:28.960 --> 00:01:34.159
-second piece is evaluator a CNN based
+second piece is evaluator a CNN based defect predictor that takes generated
 
-00:01:31.920 --> 00:01:36.000
-defect predictor that takes generated
-
+20
 00:01:34.159 --> 00:01:38.560
-output and predict the corresponding
+output and predict the corresponding defect rate. The last piece is the
 
-00:01:36.000 --> 00:01:40.799
-defect rate. The last piece is the
-
+21
 00:01:38.560 --> 00:01:43.360
-decision engine which use the predicted
+decision engine which use the predicted defect distribution to make go or no
 
-00:01:40.799 --> 00:01:45.840
-defect distribution to make go or no
-
+22
 00:01:43.360 --> 00:01:48.799
-decision in real time. Based on this
+decision in real time. Based on this setup, I can generate multiple layer uh
 
-00:01:45.840 --> 00:01:51.280
-setup, I can generate multiple layer uh
-
+23
 00:01:48.799 --> 00:01:53.040
-samples, evaluate each of them, and
+samples, evaluate each of them, and finally estimate the defect
 
-00:01:51.280 --> 00:01:55.920
-finally estimate the defect
-
+24
 00:01:53.040 --> 00:01:58.880
-distribution. Now, it allows me to make
+distribution. Now, it allows me to make answer the aware decisions. The result
 
-00:01:55.920 --> 00:02:01.600
-answer the aware decisions. The result
-
+25
 00:01:58.880 --> 00:02:03.920
-show that my model generate high quality
+show that my model generate high quality samples with structure and texture close
 
-00:02:01.600 --> 00:02:06.000
-samples with structure and texture close
-
+26
 00:02:03.920 --> 00:02:08.239
-to the ground truth. And since the
+to the ground truth. And since the evaluator estimate defect rate for
 
-00:02:06.000 --> 00:02:10.399
-evaluator estimate defect rate for
-
+27
 00:02:08.239 --> 00:02:12.959
-different classes of defect, the
+different classes of defect, the framework can now flag risky regions
 
-00:02:10.399 --> 00:02:16.160
-framework can now flag risky regions
-
+28
 00:02:12.959 --> 00:02:18.400
-based on a userdefined threshold.
+based on a userdefined threshold. This figure show the defect distribution
 
-00:02:16.160 --> 00:02:22.720
-This figure show the defect distribution
-
+29
 00:02:18.400 --> 00:02:24.959
-of class 2 3 and 11 at layer number 100.
+of class 2 3 and 11 at layer number 100. In this example, if the 100 real
 
-00:02:22.720 --> 00:02:27.280
-In this example, if the 100 real
-
+30
 00:02:24.959 --> 00:02:28.879
-printing yields a second class defect of
+printing yields a second class defect of 0.230,
 
-00:02:27.280 --> 00:02:31.040
-0.230,
-
+31
 00:02:28.879 --> 00:02:33.040
-then it suggests to stop the printing as
+then it suggests to stop the printing as this defect will be propagated and make
 
-00:02:31.040 --> 00:02:35.040
-this defect will be propagated and make
-
+32
 00:02:33.040 --> 00:02:37.440
-the process worse.
+the process worse. My work is a unified framework for
 
-00:02:35.040 --> 00:02:40.480
-My work is a unified framework for
-
+33
 00:02:37.440 --> 00:02:43.200
-real-time riskaware LPBF monitoring by
+real-time riskaware LPBF monitoring by using generative AI and also even the
 
-00:02:40.480 --> 00:02:45.200
-using generative AI and also even the
-
+34
 00:02:43.200 --> 00:02:48.239
-first diffusion model built upon the
+first diffusion model built upon the paragraph data set. In the future I want
 
-00:02:45.200 --> 00:02:50.319
-paragraph data set. In the future I want
-
+35
 00:02:48.239 --> 00:02:53.360
-to improve the generalization across
+to improve the generalization across different build machine and connect all
 
-00:02:50.319 --> 00:02:56.560
-different build machine and connect all
-
+36
 00:02:53.360 --> 00:02:58.560
-the uh forecast to the finer part
+the uh forecast to the finer part quality. Thanks for your time and
 
-00:02:56.560 --> 00:03:01.200
-quality. Thanks for your time and
-
+37
 00:02:58.560 --> 00:03:01.200
 support.
-
 

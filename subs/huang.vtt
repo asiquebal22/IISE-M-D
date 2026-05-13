@@ -1,183 +1,122 @@
-WEBVTT - Subtitles by: DownloadYoutubeSubtitles.com
+WEBVTT
 
+1
 00:00:01.079 --> 00:00:07.919
-Hello everyone my name isan I work with
+Hello everyone my name isan I work with Dr. Kudus at university today I want to
 
-00:00:03.840 --> 00:00:09.760
-Dr. Kudus at university today I want to
-
+2
 00:00:07.919 --> 00:00:12.799
-share our work on deep learning for
+share our work on deep learning for women and need fa classification and how
 
-00:00:09.760 --> 00:00:15.839
-women and need fa classification and how
-
+3
 00:00:12.799 --> 00:00:18.119
-it supports a circular textile system
+it supports a circular textile system and let me start with the problem taxile
 
-00:00:15.839 --> 00:00:21.480
-and let me start with the problem taxile
-
+4
 00:00:18.119 --> 00:00:23.800
-waste h our economy our environment and
+waste h our economy our environment and even human health look at the number on
 
-00:00:21.480 --> 00:00:27.480
-even human health look at the number on
-
+5
 00:00:23.800 --> 00:00:31.960
-the top left every second the garbage
+the top left every second the garbage chunk of closing gas bird and centfield
 
-00:00:27.480 --> 00:00:35.440
-chunk of closing gas bird and centfield
-
+6
 00:00:31.960 --> 00:00:39.360
-and every day we serve away in the close
+and every day we serve away in the close for field 1.5 Empire state building and
 
-00:00:35.440 --> 00:00:42.320
-for field 1.5 Empire state building and
-
+7
 00:00:39.360 --> 00:00:46.000
-in 2019 so we build a bing of Sydney
+in 2019 so we build a bing of Sydney Harbor and the population keeps growing
 
-00:00:42.320 --> 00:00:48.800
-Harbor and the population keeps growing
-
+8
 00:00:46.000 --> 00:00:51.360
-so the problem will get worse you may
+so the problem will get worse you may ask where does all the waste go the
 
-00:00:48.800 --> 00:00:53.879
-ask where does all the waste go the
-
+9
 00:00:51.360 --> 00:00:57.239
-chart in the middle give the answer only
+chart in the middle give the answer only 20% of the textile waste get reruced or
 
-00:00:53.879 --> 00:00:59.399
-20% of the textile waste get reruced or
-
+10
 00:00:57.239 --> 00:01:02.160
-recycled the rest go to the bend field
+recycled the rest go to the bend field or combusture. The problem is huge but
 
-00:00:59.399 --> 00:01:04.960
-or combusture. The problem is huge but
-
+11
 00:01:02.160 --> 00:01:07.880
-the current solution is tiny. A typical
+the current solution is tiny. A typical starting facility process only 50 to 80
 
-00:01:04.960 --> 00:01:10.920
-starting facility process only 50 to 80
-
+12
 00:01:07.880 --> 00:01:13.880
-garments per hour per worker. To sort
+garments per hour per worker. To sort 2000 sample, a single worker needs 25 to
 
-00:01:10.920 --> 00:01:17.439
-2000 sample, a single worker needs 25 to
-
+13
 00:01:13.880 --> 00:01:20.240
-40 hours this cannot scale. Based on the
+40 hours this cannot scale. Based on the pinpoint, we spend the past year
 
-00:01:17.439 --> 00:01:22.320
-pinpoint, we spend the past year
-
+14
 00:01:20.240 --> 00:01:25.040
-building a full data driven pipeline to
+building a full data driven pipeline to fix it. First a data we use a high
 
-00:01:22.320 --> 00:01:27.360
-fix it. First a data we use a high
-
+15
 00:01:25.040 --> 00:01:29.520
-resolution scanner to capture every
+resolution scanner to capture every fabric sample. The image quality is
 
-00:01:27.360 --> 00:01:31.759
-fabric sample. The image quality is
-
+16
 00:01:29.520 --> 00:01:34.680
-better than the phone image and website
+better than the phone image and website image. You can see this clear weave and
 
-00:01:31.759 --> 00:01:37.479
-image. You can see this clear weave and
-
+17
 00:01:34.680 --> 00:01:39.520
-structure even at a young level. The
+structure even at a young level. The data set to of knowledge is one of the
 
-00:01:37.479 --> 00:01:41.680
-data set to of knowledge is one of the
-
+18
 00:01:39.520 --> 00:01:45.000
-highest qualityed fabric data set in the
+highest qualityed fabric data set in the field today. And next model which
 
-00:01:41.680 --> 00:01:47.880
-field today. And next model which
-
+19
 00:01:45.000 --> 00:01:49.479
-architecture based run use both of
+architecture based run use both of standard version and overfitting
 
-00:01:47.880 --> 00:01:52.079
-standard version and overfitting
-
+20
 00:01:49.479 --> 00:01:54.520
-version. Then box in the button shows a
+version. Then box in the button shows a crossation accuracy across all the test
 
-00:01:52.079 --> 00:01:58.399
-crossation accuracy across all the test
-
+21
 00:01:54.520 --> 00:02:01.320
-models. So what comes next? First a
+models. So what comes next? First a final green classification beyond five
 
-00:01:58.399 --> 00:02:02.920
-final green classification beyond five
-
+22
 00:02:01.320 --> 00:02:05.759
-classes.
+classes. Second a du pipeline system that
 
-00:02:02.920 --> 00:02:07.840
-Second a du pipeline system that
-
+23
 00:02:05.759 --> 00:02:11.000
-combines mechanical and chemical
+combines mechanical and chemical signatures. And third sem supervisor
 
-00:02:07.840 --> 00:02:12.599
-signatures. And third sem supervisor
-
+24
 00:02:11.000 --> 00:02:15.959
-learning
+learning to use unlabeled data and force edge
 
-00:02:12.599 --> 00:02:19.239
-to use unlabeled data and force edge
-
+25
 00:02:15.959 --> 00:02:22.080
-deployment or resp by piedi
+deployment or resp by piedi adjust so the system can run inside a
 
-00:02:19.239 --> 00:02:25.840
-adjust so the system can run inside a
-
+26
 00:02:22.080 --> 00:02:28.680
-real recycling plant so now we do not
+real recycling plant so now we do not have a waste problem we change it to a
 
-00:02:25.840 --> 00:02:31.319
-have a waste problem we change it to a
-
+27
 00:02:28.680 --> 00:02:36.080
-classification problem and we are close
+classification problem and we are close to solving it here you can see the name
 
-00:02:31.319 --> 00:02:40.080
-to solving it here you can see the name
-
+28
 00:02:36.080 --> 00:02:41.720
-of our lab and the QR code office
+of our lab and the QR code office if
 
-00:02:40.080 --> 00:02:44.400
-if
-
+29
 00:02:41.720 --> 00:02:46.959
-our research and work we are in
+our research and work we are in department of engineering chemistry and
 
-00:02:44.400 --> 00:02:50.640
-department of engineering chemistry and
-
+30
 00:02:46.959 --> 00:02:53.319
-science and department and compering
-
-00:02:50.640 --> 00:02:53.319
-so thank you
-
+science and department and compering so thank you
 
