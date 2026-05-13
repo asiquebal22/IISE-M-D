@@ -311,6 +311,7 @@
     <button class="pause-btn" id="pauseBtn" onclick="togglePause()">Pause</button>
     <span class="timer" id="timer">0:00</span>
     <button onclick="nextVideo()">Next &#9654;</button>
+    <button onclick="toggleCaptions()" id="ccBtn" title="Toggle Captions">CC</button>
     <button onclick="goFullscreen()" id="fsBtn" title="Fullscreen">&#x26F6; Fullscreen</button>
   </div>
 
@@ -322,12 +323,12 @@
 <script>
 // Alphabetical by last name: Heck, Huang, Ko, Kuo, Nyanney, Rahman
 const VIDEOS = [
-  { name: "Logan Heck",         school: "The University of Texas at San Antonio", file: "videos/heck.mp4" },
-  { name: "Ian (Yihan) Huang",  school: "North Carolina State University",        file: "videos/huang.mp4" },
-  { name: "Donghyun Ko",        school: "North Carolina State University",        file: "videos/ko.mp4" },
-  { name: "Timothy Kuo",        school: "Penn State University",                  file: "videos/kuo.mp4" },
-  { name: "Evans Nyanney",      school: "Ohio University",                        file: "videos/nyanney.mp4" },
-  { name: "Mahjabin Rahman",    school: "University of Pittsburgh",               file: "videos/rahman.mp4" }
+  { name: "Logan Heck",         school: "The University of Texas at San Antonio", file: "videos/heck.mp4",    subs: "subs/heck.vtt" },
+  { name: "Ian (Yihan) Huang",  school: "North Carolina State University",        file: "videos/huang.mp4",   subs: "subs/huang.vtt" },
+  { name: "Donghyun Ko",        school: "North Carolina State University",        file: "videos/ko.mp4",      subs: "subs/ko.vtt" },
+  { name: "Timothy Kuo",        school: "Penn State University",                  file: "videos/kuo.mp4",     subs: "subs/kuo.vtt" },
+  { name: "Evans Nyanney",      school: "Ohio University",                        file: "videos/nyanney.mp4", subs: "subs/nyanney.vtt" },
+  { name: "Mahjabin Rahman",    school: "University of Pittsburgh",               file: "videos/rahman.mp4",  subs: "subs/rahman.vtt" }
 ];
 
 let currentIndex = 0;
@@ -384,10 +385,32 @@ function playVideo(index) {
   loading.classList.remove('hidden');
 
   player.src = video.file;
+
+  // Remove existing tracks
+  while (player.querySelector('track')) {
+    player.querySelector('track').remove();
+  }
+
+  // Add subtitle track
+  const track = document.createElement('track');
+  track.kind = 'captions';
+  track.label = 'English';
+  track.srclang = 'en';
+  track.src = video.subs;
+  track.default = true;
+  player.appendChild(track);
+
   player.load();
   player.play().catch(err => {
     console.log('Playback error:', err);
   });
+
+  // Enable captions by default
+  setTimeout(() => {
+    if (player.textTracks.length > 0) {
+      player.textTracks[0].mode = 'showing';
+    }
+  }, 100);
 
   // Update playlist highlight
   document.querySelectorAll('.playlist-item').forEach((el, i) => {
@@ -432,6 +455,18 @@ function goFullscreen() {
   } else if (wrapper.webkitRequestFullscreen) {
     wrapper.webkitRequestFullscreen();
   }
+}
+
+let captionsOn = true;
+
+function toggleCaptions() {
+  captionsOn = !captionsOn;
+  if (player.textTracks.length > 0) {
+    player.textTracks[0].mode = captionsOn ? 'showing' : 'hidden';
+  }
+  const btn = document.getElementById('ccBtn');
+  btn.style.borderColor = captionsOn ? 'var(--accent)' : 'var(--border)';
+  btn.style.color = captionsOn ? 'var(--accent)' : 'var(--text)';
 }
 
 // Update fullscreen button text on change
